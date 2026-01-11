@@ -1,0 +1,24 @@
+{
+  "name": "react-rsc-vulnerable",
+  "version": "1.0.0",
+  "description": "Vulnerable React Server Components demo (PT-2025-48817 / CVE-2025-55182)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-server-dom-webpack": "19.0.0",
+    "express": "^4.18.2"
+  },
+  "keywords": [
+    "react",
+    "rsc",
+    "vulnerability",
+    "lab"
+  ],
+  "author": "",
+  "license": "MIT"
+}
+

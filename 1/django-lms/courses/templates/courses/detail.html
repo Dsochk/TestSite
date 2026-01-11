@@ -1,0 +1,26 @@
+{% extends 'courses/base.html' %}
+
+{% block title %}{{ course.title }} - LMS Portal{% endblock %}
+
+{% block content %}
+<div class="course-detail">
+    <h1>{{ course.title }}</h1>
+    <p class="meta">Category: {{ course.category }} | Level: {{ course.level }}</p>
+    {% if course.is_hidden %}
+    <div class="warning">⚠️ This course is hidden</div>
+    {% endif %}
+    <div class="description">
+        {{ course.description|linebreaks }}
+    </div>
+    {% if user.is_authenticated %}
+    <form method="post" action="/portal/enroll/">
+        {% csrf_token %}
+        <input type="hidden" name="course_id" value="{{ course.id }}">
+        <button type="submit">Enroll</button>
+    </form>
+    {% else %}
+    <p><a href="/portal/login/">Login to enroll</a></p>
+    {% endif %}
+</div>
+{% endblock %}
+

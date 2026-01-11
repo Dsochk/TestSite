@@ -1,0 +1,13 @@
+{% extends 'courses/base.html' %}
+
+{% block title %}Admin Panel - LMS Portal{% endblock %}
+
+{% block content %}
+<h1>Admin Dashboard</h1>
+
+<div class="admin-menu">
+    <h2>System Diagnostics</h2>
+    <p>Read-only diagnostics snapshot for platform and runtime details.</p>
+    <a href="/portal/admin_panel/diagnostics/" class="button">View Diagnostics</a>
+</div>
+{% endblock %}

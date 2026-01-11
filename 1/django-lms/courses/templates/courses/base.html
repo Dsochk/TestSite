@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}LMS Portal{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <a href="/" class="logo">LMS Portal</a>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/portal/">Courses</a></li>
+                    <li><a href="/portal/search/">Search</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a href="/portal/profile/">Profile</a></li>
+                        <li><a href="/portal/logout/">Logout</a></li>
+                    {% else %}
+                        <li><a href="/portal/login/">Login</a></li>
+                    {% endif %}
+                    <li><a href="/support/">Support</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 LMS Portal. Educational Lab Environment.</p>
+        </div>
+    </footer>
+</body>
+</html>

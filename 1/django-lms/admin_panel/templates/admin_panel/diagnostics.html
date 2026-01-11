@@ -1,0 +1,16 @@
+{% extends 'courses/base.html' %}
+
+{% block title %}System Diagnostics - LMS Portal{% endblock %}
+
+{% block content %}
+<h1>System Diagnostics</h1>
+
+<div class="admin-panel">
+    <p>Snapshot generated at: {{ server_time }}</p>
+    <p>Python: {{ python_version }}</p>
+    <p>Platform: {{ platform }}</p>
+    <p>Diagnostics are read-only in this environment.</p>
+</div>
+
+<p><a href="/portal/admin_panel/">← Back to Dashboard</a></p>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'courses/base.html' %}
+
+{% block title %}Search Courses - LMS Portal{% endblock %}
+
+{% block content %}
+<h1>Search Courses</h1>
+
+<form method="get" action="/portal/search/">
+    <div class="search-form">
+        <input type="text" name="title" placeholder="Course title" value="{{ filters.title|default:'' }}">
+        <input type="text" name="category" placeholder="Category" value="{{ filters.category|default:'' }}">
+        <select name="level">
+            <option value="">All Levels</option>
+            <option value="beginner" {% if filters.level == 'beginner' %}selected{% endif %}>Beginner</option>
+            <option value="intermediate" {% if filters.level == 'intermediate' %}selected{% endif %}>Intermediate</option>
+            <option value="advanced" {% if filters.level == 'advanced' %}selected{% endif %}>Advanced</option>
+        </select>
+        <button type="submit">Search</button>
+    </div>
+</form>
+
+<div class="courses-grid">
+    {% for course in courses %}
+    <div class="course-card">
+        <h3><a href="/portal/course/{{ course.id }}/">{{ course.title }}</a></h3>
+        <p class="meta">{{ course.category }} | {{ course.level }} {% if course.is_hidden %}[HIDDEN]{% endif %}</p>
+        {% if course.userprofile %}
+        <p class="meta">Owner: {{ course.userprofile.user.username }}</p>
+        {% endif %}
+        <p>{{ course.description|truncatewords:30 }}</p>
+    </div>
+    {% empty %}
+    <p>No courses found matching your criteria.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'courses/base.html' %}
+
+{% block title %}Course Catalog - LMS Portal{% endblock %}
+
+{% block content %}
+<h1>Course Catalog</h1>
+
+<div class="courses-grid">
+    {% for course in courses %}
+    <div class="course-card">
+        <h3><a href="/portal/course/{{ course.id }}/">{{ course.title }}</a></h3>
+        <p class="meta">{{ course.category }} | {{ course.level }}</p>
+        <p>{{ course.description|truncatewords:30 }}</p>
+    </div>
+    {% empty %}
+    <p>No courses available.</p>
+    {% endfor %}
+</div>
+{% endblock %}
+

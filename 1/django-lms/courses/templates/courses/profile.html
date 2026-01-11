@@ -1,0 +1,31 @@
+{% extends 'courses/base.html' %}
+
+{% block title %}Profile - LMS Portal{% endblock %}
+
+{% block content %}
+<h1>User Profile</h1>
+
+{% if profile %}
+<div class="profile-info">
+    <h2>{{ user.username }}</h2>
+    <p><strong>API Key:</strong> {{ profile.api_key }}</p>
+</div>
+{% else %}
+<p>No profile found.</p>
+{% endif %}
+
+<h2>My Enrollments</h2>
+{% if enrollments %}
+<ul>
+    {% for enrollment in enrollments %}
+    <li>
+        <a href="/portal/course/{{ enrollment.course.id }}/">{{ enrollment.course.title }}</a>
+        (enrolled {{ enrollment.enrolled_at|date:"Y-m-d" }})
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>You are not enrolled in any courses yet.</p>
+{% endif %}
+{% endblock %}
+
