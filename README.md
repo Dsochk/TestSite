@@ -245,11 +245,4 @@ cd /opt/lab
 bash scripts/start_services.sh
 ```
 
-## Документация
 
-См. также:
-- `docs/README.md`
-- `docs/TROUBLESHOOTING.md`
-- `docs/SETUP_NETWORK.md`
-- `FIX_ROUTES.md`
-- `UPDATE_COURSES.md`
