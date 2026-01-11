@@ -91,12 +91,6 @@ hostname -I
 Сгенерированы при установке:
 ```
 /root/lab_credentials.txt
-```
-
-## Режим сложности
-
-Лаборатория работает в режиме `hard`:
-```bash
 sudo bash scripts/set_difficulty.sh hard
 sudo systemctl restart lms-django lms-react nginx php8.2-fpm
 ```
